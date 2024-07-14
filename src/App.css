@@ -1,38 +1,170 @@
-.App {
+.logo{
+  border-radius: 50%;
+  height: 50px;
+  margin-top: 1px;
+  margin-left: 10px;
+  float: left;
+}
+
+.navbar li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.nav-right{
+  text-align: right;
+}
+
+.navbar {
+  padding: 5px;
+  margin: 0;
+  background-color: blueviolet;
+}
+
+.navbar li a{
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.footer{
+  background-color: skyblue;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.inputbox{
+  display: block;
+  margin: 25px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid blueviolet;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.register, .product{
+  margin-left: 30%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.login{
+  margin-left: 30%;
+  margin-top: 100px;
+}
+
+.signupButton{
+  background-color: skyblue;
+  margin: 25px;
+  padding: 10px;
+  width: 150px;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.invalid-input{
+  color: red;
+  margin-top: -20px;
+  display: block;
+  margin-left: 20px;
+}
+
+.product-list{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.product-list ul li {
+  display: inline-block;
+  padding: 10px;
+  width: 150px;
+  border: 1px solid;
+}
+
+.product-list ul {
+  margin: 0;
+}
+
+.search-prod-box{
+  width: 400px;
+  height: 40px;
+  margin-bottom: 30px;
+  border: 1px solid;
+  padding-left: 20px;
+}
+
+.product-list button {
+  padding: 3px;
+  margin-left: 2px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.product-list .delete-button {
+  background-color: #ff4d4d;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.product-list .update-button {
+  padding: 3px;
+  margin-left: 2px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* profile section */
+
+.profile-container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-heading {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.profile-message {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.profile-info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.profile-info-header {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-info-item {
+  font-size: 1.1em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.profile-instructions {
+  font-size: 1.2em;
+  color: #666;
+  margin: 20px 0;
+}
+
+.profile-thank-you {
+  font-size: 1.2em;
+  color: #999;
+  margin-top: 30px;
 }
