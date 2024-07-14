@@ -53,36 +53,49 @@ export default function ProductList() {
     }
 
     return (
-        <div className='product-list'>
-            <h1>Product List</h1>
-            <input className='search-prod-box' type='text' placeholder='Search Product' onChange={handleSearch}></input>
-            <ul>
-                <li>S. No.</li>
-                <li>Name</li>
-                <li>Price</li>
-                <li>Category</li>
-                <li>Company</li>
-                <li>Operation</li>
-            </ul>
-            {
-                products.length > 0 ? (
-                    products.map((item, index) =>
-                        <ul key={item._id}>
-                            <li>{index + 1}</li>
-                            <li>{item.name}</li>
-                            <li>{item.price} INR</li>
-                            <li>{item.category}</li>
-                            <li>{item.company}</li>
-                            <li>
-                                <button className='delete-button' onClick={() => deleteProd(item._id)}>Delete</button>
-                                <Link to={"/update/" + item._id} className='update-button'>Update</Link>
-                            </li>
-                        </ul>
-                    )
+        <div className='product-list-container'>
+            <h1 className='product-list-heading'>Product List</h1>
+            <input
+                className='search-prod-box'
+                type='text'
+                placeholder='Search Product'
+                onChange={handleSearch}
+            />
+            <div className='product-table'>
+                <div className='product-table-header'>
+                    <span>S. No.</span>
+                    <span>Name</span>
+                    <span>Price</span>
+                    <span>Category</span>
+                    <span>Company</span>
+                    <span>Operation</span>
+                </div>
+                {products.length > 0 ? (
+                    products.map((item, index) => (
+                        <div key={item._id} className='product-table-row'>
+                            <span>{index + 1}</span>
+                            <span>{item.name}</span>
+                            <span>{item.price} INR</span>
+                            <span>{item.category}</span>
+                            <span>{item.company}</span>
+                            <span className='operation-buttons'>
+                                <button
+                                    className='delete-button'
+                                    onClick={() => deleteProd(item._id)}
+                                >
+                                    Delete
+                                </button>
+                                <button className='update-button'><Link to={"/update/" + item._id}>
+                                    Update
+                                </Link></button>
+
+                            </span>
+                        </div>
+                    ))
                 ) : (
-                    <p>No products available.</p>
-                )
-            }
+                    <p className='no-products-message'>No products available.</p>
+                )}
+            </div>
         </div>
     )
 }

@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function Footer(){
+export default function Footer() {
     return (
-        <div className="footer">
-            <h3>Footer</h3>
-        </div>
+        <footer className="footer">
+            <div className="footer-content">
+                <p>&copy; {new Date().getFullYear()} E-commerce Dashboard. All rights reserved. | Designed by Avni Bansal</p>
+            </div>
+        </footer>
     );
 }
