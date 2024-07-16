@@ -7,6 +7,7 @@ export default function SignUp() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const Navigate = useNavigate();
+    const baseurl = process.env.REACT_APP_BASE_URL
 
     useEffect(()=>{
       const auth = localStorage.getItem('User');
@@ -17,7 +18,7 @@ export default function SignUp() {
     },[])
 
     const handleSubmit = async ()=>{
-        let result = await fetch("http://localhost:5000/register",{               //params : url,function-method and body and headers
+        let result = await fetch(`${baseurl}/register`,{               //params : url,function-method and body and headers
             method: 'post',
             body: JSON.stringify({name,email,password}),
             headers: {
@@ -25,7 +26,6 @@ export default function SignUp() {
             },
         });
         result = await result.json();
-        console.log(result)
         localStorage.setItem("User",JSON.stringify(result.result)) 
         localStorage.setItem("Token",JSON.stringify(result.auth)) 
         if(result)

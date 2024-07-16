@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default function ProductList() {
     const [products, setProducts] = useState([]);
+    const baseurl = process.env.REACT_APP_BASE_URL
 
     useEffect(() => {
         getProducts();              //this is a better way though you can add here directly also
     }, [])
 
     const getProducts = async () => {
-        let result = await fetch("http://localhost:5000/products", {
+        let result = await fetch(`${baseurl}/products`, {
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('Token'))}`
             }
@@ -19,7 +20,7 @@ export default function ProductList() {
     };
 
     const deleteProd = async (id) => {
-        let result = await fetch(`http://localhost:5000/product/${id}`, {
+        let result = await fetch(`${baseurl}/product/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('Token'))}`
@@ -36,7 +37,7 @@ export default function ProductList() {
     const handleSearch = async (event) => {
         let key = event.target.value;
         if (key) {
-            let result = await fetch(`http://localhost:5000/search/${key}`, {
+            let result = await fetch(`${baseurl}/search/${key}`, {
                 headers: {
                     authorization: `bearer ${JSON.parse(localStorage.getItem('Token'))}`
                 }

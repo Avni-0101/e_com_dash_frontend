@@ -5,6 +5,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const baseurl = process.env.REACT_APP_BASE_URL
 
     useEffect(() => {
         const auth = localStorage.getItem('User');
@@ -14,7 +15,7 @@ export default function Login() {
     }, [])
 
     const handleLogin = async () => {
-        let result = await fetch("http://localhost:5000/login", {               //params : url,function-method and body and headers
+        let result = await fetch(`${baseurl}/login`, {               //params : url,function-method and body and headers
             method: 'post',
             body: JSON.stringify({ email, password }),
             headers: {

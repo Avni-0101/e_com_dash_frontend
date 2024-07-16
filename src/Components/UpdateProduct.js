@@ -9,13 +9,14 @@ export default function UpdateProduct() {
     const [price, setPrice] = useState("");
     const navigate = useNavigate();
     const params = useParams();
+    const baseurl = process.env.REACT_APP_BASE_URL
 
     useEffect(() => {
         getProductDetails();
     }, [])
 
     const getProductDetails = async () => {
-        let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+        let result = await fetch(`${baseurl}/product/${params.id}`, {
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('Token'))}`
             }
@@ -29,7 +30,7 @@ export default function UpdateProduct() {
     }
 
     const handleUpdate = async () => {
-        let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+        let result = await fetch(`${baseurl}/product/${params.id}`, {
             method: 'PUT',
             body: JSON.stringify({ name, price, category, company }),
             headers: {
@@ -38,7 +39,6 @@ export default function UpdateProduct() {
             }
         })
         result = await result.json();
-        console.log(result)
         navigate("/");
     }
 

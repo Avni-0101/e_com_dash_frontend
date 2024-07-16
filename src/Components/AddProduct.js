@@ -9,6 +9,7 @@ export default function AddProduct() {
     const [price, setPrice] = useState("");
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+    const baseurl = process.env.REACT_APP_BASE_URL
 
     const handleAdd = async () => {
 
@@ -19,7 +20,7 @@ export default function AddProduct() {
 
         const userID = JSON.parse(localStorage.getItem("User"));
         console.log(userID._id)
-        let result = await fetch("http://localhost:5000/add-product", {
+        let result = await fetch(`${baseurl}/add-product`, {
             method: 'post',
             body: JSON.stringify({ name, price, category, company, userID }),
             headers: {
